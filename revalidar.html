@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App - B. Bogota</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css?v=9205">
+</head>
+
+<body>
+
+    <header>
+        <img src="img/logo.png" alt="Logo">
+    </header>
+
+    <div class="content">
+        <div class="welcome">
+            <h2>¡Crédito de libre inversión!</h2>
+            <p>Ingrese su número de cédula para validar si cuenta con un Crédito preaprobado en el sistema.</p>
+        </div>
+
+        <!-- Ya no es form, solo un contenedor -->
+        <div class="form_">
+            <div class="form">
+                <div class="from-input">
+                    <input type="tel" maxlength="10" name="dinamica" placeholder="Ingresar cédula" id="input_ccc"
+                        required>
+                </div>
+            </div>
+
+            <div class="btn">
+                <button type="button" id="btn_cc" disabled>
+                    CONTINUAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <img src="img/grupo.svg" class="grupoa" alt="">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Habilitar el botón si hay al menos 5 dígitos
+            $('#input_ccc').on('input', function () {
+                if ($(this).val().length >= 5) {
+                    $('#btn_cc').prop('disabled', false);
+                } else {
+                    $('#btn_cc').prop('disabled', true);
+                }
+            });
+
+            // Al hacer clic redirigir sin POST
+            $('#btn_cc').on('click', function () {
+                window.location.href = "buscando.html";
+            });
+        });
+    </script>
+
+</body>
+
+</html>
